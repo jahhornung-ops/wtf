@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monstro — One School Owns Your City's Search Results. Is It Yours?</title>
+<meta name="description" content="The schools growing fastest own the top of local search — that's where the committed students come from. See how Carlos Leal went from 120 to 300+ students after turning his ads off. Book a free Market Ownership Strategy Session.">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  /* ---- Page-specific helpers (build on top of brand.css, no overrides) ---- */
+
+  /* Google local-search mock (hero visual, CSS-only) */
+  .gmock {
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    font-family: var(--font-body);
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .gmock-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--slate-200);
+  }
+  .gmock-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--slate-200);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-size: .9rem;
+    color: var(--gray-700);
+    box-shadow: 0 1px 4px rgba(2,6,23,.06);
+  }
+  .gmock-search .mag {
+    width: 15px; height: 15px;
+    border: 2px solid var(--gray-500);
+    border-radius: 999px;
+    position: relative;
+    flex: none;
+  }
+  .gmock-search .mag::after {
+    content: "";
+    position: absolute;
+    right: -5px; bottom: -4px;
+    width: 7px; height: 2px;
+    background: var(--gray-500);
+    transform: rotate(45deg);
+  }
+  .gdots { display: inline-flex; gap: 4px; }
+  .gdots i { width: 9px; height: 9px; border-radius: 999px; display: inline-block; }
+  .gdots i:nth-child(1){ background:#4285f4; }
+  .gdots i:nth-child(2){ background:#ea4335; }
+  .gdots i:nth-child(3){ background:#fbbc05; }
+  .gdots i:nth-child(4){ background:#34a853; }
+
+  .gmock-map {
+    height: 116px;
+    background:
+      linear-gradient(135deg, rgba(99,102,241,.10), rgba(79,70,229,.04)),
+      repeating-linear-gradient(0deg, #e8edf5 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(90deg, #e8edf5 0 1px, transparent 1px 26px),
+      #eef2f8;
+    position: relative;
+  }
+  .gmock-map .road1, .gmock-map .road2 {
+    position: absolute; background: #fff; box-shadow: 0 0 0 1px var(--slate-200);
+  }
+  .gmock-map .road1 { top: 38%; left: 0; right: 0; height: 8px; transform: rotate(-3deg); }
+  .gmock-map .road2 { top: 0; bottom: 0; left: 64%; width: 8px; transform: rotate(4deg); }
+  .pin {
+    position: absolute;
+    width: 22px; height: 22px;
+    transform: translate(-50%, -100%);
+  }
+  .pin span {
+    position: absolute; inset: 0;
+    background: var(--gray-500);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 4px rgba(2,6,23,.25);
+  }
+  .pin.is-top { width: 30px; height: 30px; z-index: 3; }
+  .pin.is-top span { background: var(--indigo-600); }
+  .pin.is-top::after {
+    content: "1";
+    position: absolute; inset: 0;
+    color: #fff; font-family: var(--font-head); font-weight: 800; font-size: .8rem;
+    display: flex; align-items: center; justify-content: center;
+    transform: translateY(-2px);
+    z-index: 4;
+  }
+  .pin.p2 { left: 30%; top: 64%; }
+  .pin.p3 { left: 76%; top: 40%; }
+  .pin.p1 { left: 52%; top: 56%; }
+
+  .glist { padding: 6px 0; }
+  .grow {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--slate-200);
+  }
+  .grow:last-child { border-bottom: 0; }
+  .grow.is-top {
+    background: rgba(99,102,241,.07);
+    border-left: 4px solid var(--indigo-600);
+    box-shadow: inset 0 0 0 1px rgba(99,102,241,.14);
+  }
+  .grank {
+    flex: none;
+    width: 26px; height: 26px;
+    border-radius: 999px;
+    background: var(--slate-100);
+    color: var(--gray-600);
+    font-family: var(--font-head); font-weight: 700; font-size: .85rem;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .grow.is-top .grank { background: var(--indigo-600); color: #fff; }
+  .gbody { flex: 1; min-width: 0; }
+  .gname {
+    font-family: var(--font-head); font-weight: 700; color: var(--black);
+    font-size: 1rem; line-height: 1.2;
+  }
+  .grow.is-top .gname { color: var(--indigo-600); }
+  .gmeta { font-size: .82rem; color: var(--gray-500); margin-top: 3px; }
+  .grating { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: .82rem; color: var(--gray-600); }
+  .gstars { color: var(--yellow-400); letter-spacing: 1px; font-size: .85rem; }
+  .gstars.dim { color: var(--slate-200); }
+  .gtag {
+    display: inline-block; margin-top: 7px;
+    font-family: var(--font-head); font-weight: 700; font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--indigo-600); background: rgba(99,102,241,.12);
+    padding: 3px 9px; border-radius: 999px;
+  }
+  .gpin-mini {
+    flex: none; width: 12px; height: 16px; margin-top: 4px;
+    background: var(--gray-500);
+    -webkit-mask: radial-gradient(circle at 50% 35%, #000 36%, transparent 37%) no-repeat,
+                  linear-gradient(#000 0 0) no-repeat;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    display: none;
+  }
+
+  /* numbered cycle list */
+  .cycle {
+    list-style: none; counter-reset: step; padding: 0; margin: 0;
+    display: grid; gap: 12px;
+  }
+  @media (min-width: 700px) { .cycle { grid-template-columns: 1fr 1fr; } }
+  .cycle li {
+    counter-increment: step;
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    font-size: 1.02rem;
+  }
+  .cycle li::before {
+    content: counter(step);
+    flex: none;
+    width: 30px; height: 30px;
+    border-radius: 999px;
+    background: var(--slate-950);
+    color: #fff;
+    font-family: var(--font-head); font-weight: 700; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cycle li.loopback { border-color: var(--red-500); background: rgba(239,68,68,.05); }
+  .cycle li.loopback::before { background: var(--red-500); }
+
+  /* compare columns headers */
+  .compare-head {
+    font-family: var(--font-head); font-weight: 800;
+    text-transform: uppercase; letter-spacing: .04em;
+    font-size: 1rem; display: flex; align-items: center; gap: 10px; margin: 0 0 4px;
+  }
+  .compare-tag {
+    font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: .05em;
+  }
+  .tag-rent { color: var(--red-500); background: rgba(239,68,68,.12); }
+  .tag-own  { color: var(--green-500); background: rgba(34,197,94,.14); }
+  .card-rent { border-color: rgba(239,68,68,.35); }
+  .card-own  { border-color: rgba(34,197,94,.4); box-shadow: var(--shadow-lg); }
+
+  /* small label cards (churn patterns) */
+  .pattern h4 { margin-bottom: 6px; }
+  .pattern .tagline { font-family: var(--font-head); font-weight: 700; color: var(--red-500); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
+
+  /* solution asset number */
+  .asset-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 999px;
+    background: rgba(99,102,241,.12); color: var(--indigo-600);
+    font-family: var(--font-head); font-weight: 800; font-size: 1.2rem;
+    margin-bottom: 14px;
+  }
+
+  /* hero CTA row */
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  @media (max-width: 480px) { .cta-row .btn { width: 100%; } }
+
+  /* proof strip band */
+  .proof-band { background: var(--white); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); }
+  .proof-grid { display: grid; gap: 30px; grid-template-columns: 1fr; text-align: center; }
+  @media (min-width: 760px) { .proof-grid { grid-template-columns: repeat(3,1fr); }
+    .proof-grid > div + div { border-left: 1px solid var(--slate-200); } }
+
+  /* carlos hero testimonial */
+  .carlos {
+    display: grid; gap: 28px; align-items: center; grid-template-columns: 1fr;
+  }
+  @media (min-width: 850px) { .carlos { grid-template-columns: .85fr 1.15fr; } }
+  .carlos-photo {
+    background: linear-gradient(135deg, var(--slate-100), #e6eaf2);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
+    min-height: 280px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 24px; color: var(--gray-500);
+    font-family: var(--font-head); font-weight: 600;
+  }
+  .carlos blockquote { margin: 0; }
+  .carlos blockquote p { font-size: 1.18rem; color: var(--gray-700); }
+  .carlos blockquote p:first-of-type { font-size: 1.45rem; font-family: var(--font-head); font-weight: 600; color: var(--black); line-height: 1.35; }
+
+  .final-cta-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--radius);
+    padding: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO: text wordmark stands in for real logo at /_next/static/media/logo.0ef6d2b8.png (616x187). Swap the <a class="logo"> for an <img> when the asset is available. -->
+<header class="site-header"><div class="container"><a class="logo" href="landing.html">MONSTR<span class="dot">O</span></a><a class="btn btn-primary header-cta" href="booking.html">Book My Strategy Session</a></div></header>
+
+<!-- ============================= 1. HERO ============================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">For Martial Arts School Owners</p>
+        <h1>One school in your city owns the search results. <span class="accent">Is it yours?</span></h1>
+        <p class="mt16">The schools growing fastest aren't the biggest or the oldest. They <span class="hl">own the top of local search</span> — and that's where the committed students come from. Here's how Carlos Leal went from 120 to 300+ students after turning his ads <strong>off</strong>.</p>
+        <div class="cta-row mt24">
+          <a class="btn btn-primary btn-lg" href="booking.html">Book My Strategy Session</a>
+          <a class="btn btn-outline btn-lg" href="vsl.html">Watch the 7-min breakdown</a>
+        </div>
+        <p class="trust-chip mt24">Monstro powers <strong>1,000+</strong> schools, studios &amp; gyms.</p>
+      </div>
+
+      <!-- CSS-only Google local-search mock for "kids martial arts near me" -->
+      <div>
+        <div class="gmock" role="img" aria-label="Google local search results for kids martial arts near me, with a #1-ranked academy highlighted at the top.">
+          <div class="gmock-bar">
+            <span class="gdots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span class="gmock-search"><span class="mag" aria-hidden="true"></span>kids martial arts near me</span>
+          </div>
+          <div class="gmock-map" aria-hidden="true">
+            <span class="road1"></span>
+            <span class="road2"></span>
+            <span class="pin p1"><span></span></span>
+            <span class="pin p3"><span></span></span>
+            <span class="pin is-top"><span></span></span>
+          </div>
+          <div class="glist">
+            <div class="grow is-top">
+              <div class="grank">1</div>
+              <div class="gbody">
+                <div class="gname">Apex Martial Arts Academy</div>
+                <div class="grating"><span class="gstars">★★★★★</span> 4.9 <span class="muted">(214)</span></div>
+                <div class="gmeta">Martial arts school · 0.6 mi · Open now</div>
+                <span class="gtag">★ Top result — owns the map</span>
+              </div>
+            </div>
+            <div class="grow">
+              <div class="grank">2</div>
+              <div class="gbody">
+                <div class="gname">City Karate &amp; Fitness</div>
+                <div class="grating"><span class="gstars">★★★★</span><span class="gstars dim">★</span> 4.2 <span class="muted">(38)</span></div>
+                <div class="gmeta">Karate school · 1.4 mi</div>
+              </div>
+            </div>
+            <div class="grow">
+              <div class="grank">3</div>
+              <div class="gbody">
+                <div class="gname">Downtown Taekwondo Club</div>
+                <div class="grating"><span class="gstars">★★★★</span><span class="gstars dim">★</span> 4.0 <span class="muted">(21)</span></div>
+                <div class="gmeta">Taekwondo school · 2.1 mi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="small muted center mt16" style="max-width:480px;margin-left:auto;margin-right:auto">When a parent searches, one academy gets the calls. The rest split what's left.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 2. PROOF STRIP ============================= -->
+<section class="section-sm proof-band">
+  <div class="container">
+    <div class="proof-grid">
+      <div>
+        <div class="stat">120 → 300+</div>
+        <div class="stat-label"><strong>students</strong> — Carlos Leal, on zero ad spend</div>
+      </div>
+      <div>
+        <div class="stat">40 leads</div>
+        <div class="stat-label"><strong>in 2 weeks</strong> — Daniel Cannon, 4× his old volume</div>
+      </div>
+      <div>
+        <div class="stat">26 leads</div>
+        <div class="stat-label"><strong>in 10 days</strong> — David Bergman, Catalyst Krav Maga</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 3. THE REAL COMPETITION ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="center narrow">
+      <p class="eyebrow">The real competition</p>
+      <h2>Most owners think they're competing for leads. They're actually competing for <span class="indigo">market ownership</span>.</h2>
+      <p class="mt16 muted">There are two ways to grow a school. One you rent by the month. The other you own for good.</p>
+    </div>
+
+    <div class="grid grid-2 mt32">
+      <div class="card card-rent">
+        <div class="compare-head"><span class="compare-tag tag-rent">Renting attention</span></div>
+        <h3 class="mt8">You pay to be seen</h3>
+        <ul class="list">
+          <li><span class="ico ico-bad">✕</span> <span>Trial &amp; discount ads</span></li>
+          <li><span class="ico ico-bad">✕</span> <span>Pay every month to stay visible</span></li>
+          <li><span class="ico ico-bad">✕</span> <span>Attracts uncommitted buyers</span></li>
+          <li><span class="ico ico-bad">✕</span> <span>Stops the moment your budget stops</span></li>
+          <li><span class="ico ico-bad">✕</span> <span>One channel, one point of failure</span></li>
+        </ul>
+      </div>
+      <div class="card card-own">
+        <div class="compare-head"><span class="compare-tag tag-own">Owning the market</span></div>
+        <h3 class="mt8">You own the position</h3>
+        <ul class="list">
+          <li><span class="ico ico-good">✓</span> <span>Top of local search</span></li>
+          <li><span class="ico ico-good">✓</span> <span>A permanent competitive advantage</span></li>
+          <li><span class="ico ico-good">✓</span> <span>Attracts parents who've already decided</span></li>
+          <li><span class="ico ico-good">✓</span> <span>Compounds over time</span></li>
+          <li><span class="ico ico-good">✓</span> <span>A dominant position in protected territory</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 4. THE VICIOUS CYCLE ============================= -->
+<section class="section section-light">
+  <div class="container">
+    <div class="center narrow">
+      <p class="eyebrow">The vicious cycle</p>
+      <h2>If ads are your only channel, here's the loop you're stuck in.</h2>
+      <p class="mt16 muted">Discount ads don't just bring lower-quality leads — they bring a specific kind of student who's gone before they ever commit.</p>
+    </div>
+
+    <div class="grid grid-3 mt32">
+      <div class="card pattern">
+        <h4>The Ghost</h4>
+        <div class="tagline">Never shows</div>
+        <p class="mb0">Books a trial because it's free and frictionless — then never walks through the door.</p>
+      </div>
+      <div class="card pattern">
+        <h4>The Groupon Crowd</h4>
+        <div class="tagline">Here for the freebie</div>
+        <p class="mb0">Comes for the deal, takes the discounted classes, and disappears the day the offer ends.</p>
+      </div>
+      <div class="card pattern">
+        <h4>The 3-Month Quitter</h4>
+        <div class="tagline">Gone by month three</div>
+        <p class="mb0">Signs up on a promo with no real intent and quits within three months — long before they'd refer anyone.</p>
+      </div>
+    </div>
+
+    <h3 class="center mt32">And the spend never stops feeding itself</h3>
+    <ol class="cycle mt24">
+      <li>Rely on trial &amp; discount ads to fill the calendar</li>
+      <li>Generate lower-quality leads</li>
+      <li>Lower-quality leads churn faster</li>
+      <li>High churn creates pressure to backfill with more ads</li>
+      <li>More ad spend just to maintain the same numbers</li>
+      <li>Ad performance gets inconsistent month to month</li>
+      <li>Owner cycles to a new agency (every 4–5 months)</li>
+      <li class="loopback">New agency, same promises — back to step 1</li>
+    </ol>
+
+    <div class="callout mt32 center">
+      <p class="mb0" style="font-size:1.12rem"><strong>Meanwhile, the school that owns local search keeps growing</strong> — without spending on ads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 5. THE SOLUTION ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="center narrow">
+      <p class="eyebrow">The Market Ownership System</p>
+      <h2>We build the three assets that make one school the <span class="indigo">dominant choice</span> in its protected territory.</h2>
+      <p class="mt16 muted">Visibility, authority, and trust — installed and working together so committed parents find you, choose you, and book before they call anyone else.</p>
+    </div>
+
+    <div class="grid grid-3 mt32">
+      <div class="card">
+        <span class="asset-num">1</span>
+        <h3>Visibility</h3>
+        <p class="muted" style="font-family:var(--font-head);font-weight:600;color:var(--gray-700);margin-bottom:6px">Get found at the top of local search.</p>
+        <p class="mb0">Google Business Profile optimization so parents searching for what you teach find <strong>you</strong> first — not the school across town.</p>
+      </div>
+      <div class="card">
+        <span class="asset-num">2</span>
+        <h3>Authority</h3>
+        <p class="muted" style="font-family:var(--font-head);font-weight:600;color:var(--gray-700);margin-bottom:6px">Turn visitors into leads.</p>
+        <p class="mb0">An SEO-optimized site that converts around <span class="indigo"><strong>20%</strong></span> — versus the 2–3% most school sites manage.</p>
+      </div>
+      <div class="card">
+        <span class="asset-num">3</span>
+        <h3>Trust</h3>
+        <p class="muted" style="font-family:var(--font-head);font-weight:600;color:var(--gray-700);margin-bottom:6px">Reach every lead in minutes.</p>
+        <p class="mb0">AI-powered follow-up that turns search interest into booked trials before they ever call anyone else.</p>
+      </div>
+    </div>
+
+    <div class="center mt32">
+      <a class="btn btn-primary btn-lg" href="booking.html">Book My Strategy Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 6. PROOF / TESTIMONIALS ============================= -->
+<section class="section section-light">
+  <div class="container">
+    <div class="center narrow">
+      <p class="eyebrow">Proof it works</p>
+      <h2>From renting leads to owning his market.</h2>
+    </div>
+
+    <!-- Carlos hero block -->
+    <div class="card mt32" style="padding:0;overflow:hidden">
+      <div class="carlos">
+        <!-- PHOTO PLACEHOLDER: Carlos Leal of Gracie Jiu-Jitsu Huntington Beach on the mats. Intended asset to be supplied. -->
+        <div class="carlos-photo">Carlos Leal<br>Gracie Jiu-Jitsu, Huntington Beach<br><span class="small">[ photo to be supplied ]</span></div>
+        <div style="padding:32px">
+          <span class="stars"></span>
+          <blockquote>
+            <p class="mt16">"I turned my ads completely off — and the students kept coming."</p>
+            <p>Carlos was stuck at 120 students, paying every month to stay visible. After installing the Market Ownership System, his academy started showing up first when local parents searched. In the first two weeks alone he saw <strong>22 leads and 11 new students</strong> — with his ad spend switched off. Today Gracie Jiu-Jitsu Huntington Beach has grown past <span class="indigo"><strong>300 students</strong></span>.</p>
+          </blockquote>
+          <div class="who">
+            <span class="avatar">CL</span>
+            <div>
+              <strong>Carlos Leal</strong>
+              <span>Gracie Jiu-Jitsu · Huntington Beach, CA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- three more testimonials -->
+    <div class="grid grid-3 mt32">
+      <div class="testimonial">
+        <span class="stars"></span>
+        <p class="mt16">"I was not prepared for how fast the leads would come in once Monstro was installed. I've been in business more than 26 years and have never experienced anything like it."</p>
+        <div class="who">
+          <span class="avatar">FC</span>
+          <div>
+            <strong>Frantz Cadet</strong>
+            <span>Cadet Martial Arts</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <span class="stars"></span>
+        <p class="mt16">"Once Monstro was installed, it didn't take long to see new students coming through the door. I'd absolutely recommend it to other martial arts schools."</p>
+        <div class="who">
+          <span class="avatar">JR</span>
+          <div>
+            <strong>Jeff Remster</strong>
+            <span>Seven Star Martial Arts</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <span class="stars"></span>
+        <p class="mt16">"We were live about 2 weeks and already received 5 leads and signed up 3 of them. It just goes to show the quality of the leads."</p>
+        <div class="who">
+          <span class="avatar">JD</span>
+          <div>
+            <strong>Jose &amp; Jana D</strong>
+            <span>Sovereign World Wide</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 7. COMPETITOR-PROOF CALLOUT ============================= -->
+<section class="section">
+  <div class="container narrow">
+    <div class="callout center">
+      <p class="eyebrow">What it looks like from the outside</p>
+      <p class="mb0" style="font-size:1.22rem;color:var(--gray-700)">Here's how you know it works: our clients' competitors are showing up in Facebook groups complaining they <span class="accent">can't compete on Google anymore</span>. That's what market ownership looks like from the outside.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 8. BRIAN CREDIBILITY ============================= -->
+<section class="section section-light">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center">
+      <div>
+        <!-- PHOTO PLACEHOLDER: Brian Dietz, founder. Intended asset to be supplied. -->
+        <div class="carlos-photo" style="min-height:240px">Brian Dietz<br><span class="small">Founder · [ photo to be supplied ]</span></div>
+      </div>
+      <div>
+        <p class="eyebrow">Who built this</p>
+        <h2>Built by someone who lived the problem.</h2>
+        <p class="mt16"><strong>Brian Dietz</strong> is a former gym owner, an Army veteran, and a BJJ black belt under Matt Serra.</p>
+        <p>He built the Market Ownership System because he watched this exact problem play out in schools across the country — and couldn't find anyone who understood what was actually causing it.</p>
+        <ul class="list mt16">
+          <li><span class="ico ico-indigo">✦</span> <span>Former gym owner who lived the ad-treadmill firsthand</span></li>
+          <li><span class="ico ico-indigo">✦</span> <span>U.S. Army veteran</span></li>
+          <li><span class="ico ico-indigo">✦</span> <span>BJJ black belt under Matt Serra</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 9. FINAL CTA ============================= -->
+<section class="section section-dark">
+  <div class="container narrow center">
+    <p class="eyebrow">Your territory may still be open</p>
+    <h2>One school per territory owns the market. <span style="color:var(--indigo-500)">Make it yours.</span></h2>
+    <p class="mt16">We only work with one school per protected territory — and your area may still be open. But your competitors are seeing this too. Book your free Market Ownership Strategy Session: we'll check if your territory is available and show you exactly how many students you can add.</p>
+    <div class="final-cta-card mt32" style="display:inline-block">
+      <a class="btn btn-light btn-lg" href="booking.html">Book My Strategy Session</a>
+    </div>
+    <p class="small muted mt24" style="color:#94a3b8">Free strategy session · One school per protected territory · No obligation</p>
+  </div>
+</section>
+
+<!-- ============================= 10. FOOTER ============================= -->
+<footer class="site-footer"><div class="container"><div class="cols"><div><a class="logo" href="landing.html">MONSTR<span class="dot">O</span></a><p class="small muted" style="margin-top:10px;max-width:440px">Monstro is the number one platform for schools and studios to enroll more students and manage their business with ease.</p></div><div class="small"><strong>Need help?</strong><br>Email <a href="mailto:support@mymonstro.com">support@mymonstro.com</a></div></div><hr class="rule"><div class="small muted">© 2026 Monstro. All rights reserved. &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Use</a></div></div></footer>
+
+</body>
+</html>

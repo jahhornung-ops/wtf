@@ -1,0 +1,124 @@
+<!-- Export: screenshot the 1080x1080 .ad-stage to PNG. Swap the text wordmark for the real logo when available. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monstro — Static Ad Creative Set (1080×1080)</title>
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  :root { --preview-scale: 0.32; }
+  body {
+    margin: 0;
+    background: #1e293b;
+    color: var(--slate-100);
+    font-family: var(--font-body);
+    padding: 56px 40px 80px;
+  }
+
+  .sheet-head { max-width: 1200px; margin: 0 auto 48px; }
+  .sheet-head .wordmark {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .sheet-head .wordmark .o { color: var(--indigo-500); }
+  .sheet-head h1 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 30px;
+    color: #fff;
+    margin: 18px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .sheet-head p {
+    font-size: 17px;
+    color: #94a3b8;
+    margin: 0;
+    max-width: 760px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 44px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* sized box that contains the scaled-down 1080x1080 stage so previews never overlap */
+  .frame-box {
+    width: calc(1080px * var(--preview-scale));
+    height: calc(1080px * var(--preview-scale));
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45);
+    background: #334155;
+  }
+  .frame-box iframe {
+    width: 1080px;
+    height: 1080px;
+    border: 0;
+    transform: scale(var(--preview-scale));
+    transform-origin: top left;
+    display: block;
+    pointer-events: none;
+  }
+
+  .caption {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 16px;
+    color: #e2e8f0;
+    margin-top: 16px;
+    text-align: center;
+  }
+  .caption .file {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="sheet-head">
+    <div class="wordmark">MONSTR<span class="o">O</span></div>
+    <h1>Static ad creative set (1080×1080)</h1>
+    <p>Screenshot each ad's stage to export PNG. Open any file directly to capture it at full size. Previews below are scaled down for review.</p>
+  </div>
+
+  <div class="grid">
+    <div class="preview">
+      <div class="frame-box"><iframe src="ad-1-search.html" title="Ad 1" scrolling="no"></iframe></div>
+      <div class="caption">Ad 1 — Do They Find You First?<span class="file">ad-1-search.html</span></div>
+    </div>
+
+    <div class="preview">
+      <div class="frame-box"><iframe src="ad-2-renting.html" title="Ad 2" scrolling="no"></iframe></div>
+      <div class="caption">Ad 2 — Renting vs Owning<span class="file">ad-2-renting.html</span></div>
+    </div>
+
+    <div class="preview">
+      <div class="frame-box"><iframe src="ad-3-agency.html" title="Ad 3" scrolling="no"></iframe></div>
+      <div class="caption">Ad 3 — The Agency Cycle<span class="file">ad-3-agency.html</span></div>
+    </div>
+
+    <div class="preview">
+      <div class="frame-box"><iframe src="ad-4-billy.html" title="Ad 4" scrolling="no"></iframe></div>
+      <div class="caption">Ad 4 — Billy's Story<span class="file">ad-4-billy.html</span></div>
+    </div>
+  </div>
+</body>
+</html>

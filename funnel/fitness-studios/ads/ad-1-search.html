@@ -1,0 +1,161 @@
+<!-- Export: screenshot the 1080x1080 .ad-stage to PNG. Swap the text wordmark for the real logo when available. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monstro Ad 1 — Do They Find You First?</title>
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  html, body { background: #334155; }
+  body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
+
+  .ad-stage {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    background: var(--white);
+    color: var(--black);
+    padding: 84px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    font-family: var(--font-body);
+  }
+
+  /* wordmark */
+  .wordmark {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    line-height: 1;
+  }
+  .wordmark .o { color: var(--indigo-600); }
+
+  /* search bar */
+  .search-wrap { margin-top: 64px; }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: var(--white);
+    border: 3px solid var(--slate-200);
+    border-radius: 999px;
+    padding: 26px 38px;
+    box-shadow: 0 16px 40px rgba(2,6,23,.10);
+  }
+  .search-icon {
+    flex: none;
+    width: 40px; height: 40px;
+    border: 5px solid var(--gray-500);
+    border-radius: 999px;
+    position: relative;
+  }
+  .search-icon::after {
+    content: "";
+    position: absolute;
+    width: 5px; height: 20px;
+    background: var(--gray-500);
+    border-radius: 4px;
+    transform: rotate(-45deg);
+    right: -10px; bottom: -10px;
+  }
+  .search-text {
+    font-family: var(--font-body);
+    font-size: 34px;
+    color: var(--gray-700);
+    font-weight: 500;
+  }
+  .search-text .typed { color: var(--black); }
+  .caret {
+    display: inline-block;
+    width: 3px; height: 36px;
+    background: var(--indigo-600);
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  /* headline */
+  .headline {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 76px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-top: 56px;
+  }
+  .headline .q { color: var(--gray-500); font-weight: 700; }
+  .headline .you { color: var(--red-500); }
+
+  .support {
+    font-family: var(--font-body);
+    font-size: 30px;
+    line-height: 1.45;
+    color: var(--gray-700);
+    margin-top: 30px;
+    max-width: 860px;
+  }
+  .support b { color: var(--black); font-weight: 700; }
+
+  .spacer { flex: 1 1 auto; }
+
+  /* CTA + footer row */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-pill {
+    display: inline-block;
+    background: var(--indigo-600);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 32px;
+    padding: 26px 46px;
+    border-radius: 999px;
+    box-shadow: 0 14px 30px rgba(79,70,229,.35);
+    white-space: nowrap;
+  }
+  .site-tag {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--gray-500);
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="ad-stage">
+    <div class="wordmark">MONSTR<span class="o">O</span></div>
+
+    <div class="search-wrap">
+      <div class="search-bar">
+        <div class="search-icon"></div>
+        <div class="search-text"><span class="typed">gyms near me</span><span class="caret"></span></div>
+      </div>
+    </div>
+
+    <div class="headline">
+      When someone in your city searches <span class="q">'gyms near me'</span> — do they find <span class="you">YOU</span> first?
+    </div>
+
+    <div class="support">
+      Every area has one gym that <b>owns the top of search.</b> That gym gets the committed members.
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="cta-row">
+      <span class="cta-pill">See how to own your market →</span>
+      <span class="site-tag">mymonstro.com</span>
+    </div>
+  </div>
+</body>
+</html>

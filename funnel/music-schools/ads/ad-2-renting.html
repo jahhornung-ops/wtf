@@ -1,0 +1,180 @@
+<!-- Export: screenshot the 1080x1080 .ad-stage to PNG. Swap the text wordmark for the real logo when available. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monstro Ad 2 — Renting vs Owning</title>
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  html, body { background: #334155; }
+  body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
+
+  .ad-stage {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    font-family: var(--font-body);
+    background: var(--slate-100);
+  }
+
+  /* top header band spanning full width */
+  .ad-head {
+    padding: 64px 80px 40px;
+    background: var(--slate-100);
+  }
+  .wordmark {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    line-height: 1;
+  }
+  .wordmark .o { color: var(--indigo-600); }
+
+  .headline {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 70px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-top: 34px;
+  }
+  .headline .renting { color: var(--red-500); }
+  .headline .owning { color: var(--indigo-600); }
+
+  /* split compare zone */
+  .compare {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+  }
+  .col {
+    flex: 1 1 50%;
+    padding: 56px 64px;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-rent { background: var(--white); }
+  .col-own { background: var(--indigo-600); color: var(--white); }
+
+  .col-tag {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 46px;
+    letter-spacing: -0.01em;
+    margin-bottom: 30px;
+  }
+  .col-rent .col-tag { color: var(--red-500); }
+  .col-own .col-tag { color: var(--white); }
+
+  .pts { list-style: none; padding: 0; margin: 0; }
+  .pts li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-family: var(--font-body);
+    font-size: 27px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .col-rent .pts li { color: var(--gray-700); }
+  .col-own .pts li { color: rgba(255,255,255,.95); }
+
+  .ico {
+    flex: none;
+    width: 34px; height: 34px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 1px;
+  }
+  .ico-bad { background: var(--red-500); }
+  .ico-good { background: var(--green-500); }
+
+  .col-foot {
+    margin-top: auto;
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .col-rent .col-foot { color: var(--gray-500); }
+  .col-own .col-foot { color: rgba(255,255,255,.85); }
+
+  /* bottom CTA band full width */
+  .ad-foot {
+    background: var(--slate-950);
+    padding: 38px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-pill {
+    display: inline-block;
+    background: var(--white);
+    color: var(--slate-950);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 32px;
+    padding: 22px 44px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .site-tag {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 26px;
+    color: rgba(255,255,255,.7);
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="ad-stage">
+    <div class="ad-head">
+      <div class="wordmark">MONSTR<span class="o">O</span></div>
+      <div class="headline">
+        You're not buying leads. You're <span class="renting">renting attention.</span>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="col col-rent">
+        <div class="col-tag">RENTING</div>
+        <ul class="pts">
+          <li><span class="ico ico-bad">✕</span> Pay every single month</li>
+          <li><span class="ico ico-bad">✕</span> Trial-lesson shoppers who vanish</li>
+          <li><span class="ico ico-bad">✕</span> Gone when budget stops</li>
+        </ul>
+        <div class="col-foot">Ads stop the second you stop paying.</div>
+      </div>
+      <div class="col col-own">
+        <div class="col-tag">OWNING</div>
+        <ul class="pts">
+          <li><span class="ico ico-good">✓</span> Top of local search</li>
+          <li><span class="ico ico-good">✓</span> Committed students</li>
+          <li><span class="ico ico-good">✓</span> Compounds over time</li>
+        </ul>
+        <div class="col-foot">Only one music school per area can own it.</div>
+      </div>
+    </div>
+
+    <div class="ad-foot">
+      <span class="cta-pill">Watch the 7-min breakdown →</span>
+      <span class="site-tag">mymonstro.com</span>
+    </div>
+  </div>
+</body>
+</html>

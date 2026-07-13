@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Free Market Ownership Strategy Session — Monstro</title>
+  <meta name="description" content="Book your free 20-minute Market Ownership Strategy Session. We'll check whether your territory is still open and show you how many students you can add.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/brand.css">
+  <style>
+    /* ---- Page-specific layout (self-contained, builds on brand.css) ---- */
+
+    /* Inline / horizontal reassurance row in the hero */
+    .reassure {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 28px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .reassure li {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+      font-size: 1rem;
+      font-family: var(--font-head);
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+    .reassure .ico { margin-top: 0; width: 22px; height: 22px; font-size: 13px; }
+
+    /* Booking row — let the widget column lead on desktop */
+    @media (min-width: 800px) {
+      .booking-grid { grid-template-columns: 1.15fr .85fr; align-items: start; }
+    }
+
+    /* Calendar booking widget placeholder (Calendly-sized embed) */
+    .booking-widget {
+      min-height: 620px;
+      border: 2px dashed var(--slate-200);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(99,102,241,.06), transparent 60%),
+        var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 28px;
+      box-shadow: var(--shadow);
+    }
+    .booking-widget .cal-mark {
+      width: 76px; height: 76px;
+      border-radius: 16px;
+      background: rgba(99,102,241,.10);
+      border: 2px solid rgba(99,102,241,.30);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .booking-widget .cal-mark::before {
+      content: ""; position: absolute; top: -8px;
+      width: 44px; height: 12px;
+      border-radius: 4px;
+      border: 2px solid rgba(99,102,241,.30);
+      background: var(--white);
+    }
+    .booking-widget .cal-mark span {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--indigo-600);
+      line-height: 1;
+    }
+    .booking-widget .cal-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--black);
+      margin: 0 0 6px;
+    }
+    .booking-widget .cal-sub {
+      color: var(--gray-500);
+      font-size: .98rem;
+      max-width: 340px;
+      margin: 0;
+    }
+
+    /* Brian credibility row */
+    .brian-card { display: grid; gap: 26px; align-items: center; grid-template-columns: 1fr; }
+    @media (min-width: 760px) {
+      .brian-card { grid-template-columns: auto 1fr; }
+    }
+    .brian-avatar {
+      width: 120px; height: 120px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--indigo-600), var(--indigo-500));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      flex: none;
+      box-shadow: var(--shadow);
+    }
+    .brian-badges {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 16px;
+      padding: 0; list-style: none;
+    }
+
+    /* Compact testimonials for the proof strip */
+    .testimonial.compact { padding: 24px; }
+    .testimonial.compact p { font-size: 1rem; }
+    .testimonial.compact .who { padding-top: 14px; margin-top: 14px; }
+    .testimonial.compact .avatar { width: 46px; height: 46px; font-size: .95rem; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO: text wordmark stands in for real logo at /_next/static/media/logo.0ef6d2b8.png (616x187). Swap <a class="logo"> for <img> when available. -->
+  <header class="site-header"><div class="container"><a class="logo" href="#">MONSTR<span class="dot">O</span></a><span class="trust-chip">Trusted by 1,000+ schools, studios &amp; academies</span></div></header>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero section-gradient">
+    <div class="container center narrow">
+      <p class="eyebrow">Free Market Ownership Strategy Session</p>
+      <h1>Your territory may still be available.</h1>
+      <p class="muted" style="font-size:1.18rem;max-width:640px;margin-left:auto;margin-right:auto">
+        Book your free 20-minute session below. We'll check whether your territory is open and show you
+        exactly how many students you can add with the Market Ownership System.
+      </p>
+      <ul class="reassure">
+        <li><span class="ico ico-good">&#10003;</span> 20 minutes</li>
+        <li><span class="ico ico-good">&#10003;</span> No pitch, no software demo</li>
+        <li><span class="ico ico-good">&#10003;</span> If your area's taken, we'll tell you immediately</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 2. MAIN BOOKING ROW ============ -->
+  <section class="section" style="padding-top:24px">
+    <div class="container">
+      <div class="grid grid-2 booking-grid">
+
+        <!-- LEFT: calendar widget placeholder -->
+        <div>
+          <!-- Embed Calendly/booking iframe here, e.g. <iframe src="https://calendly.com/monstro/strategy-session"></iframe> -->
+          <div class="booking-widget" role="region" aria-label="Booking calendar">
+            <div class="cal-mark"><span>20</span></div>
+            <p class="cal-label">Calendar booking widget loads here</p>
+            <p class="cal-sub">Pick a time that works for you. Your session is confirmed by email the moment you book.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: what happens on the session -->
+        <div class="card">
+          <h2 style="font-size:1.6rem">What happens on your session</h2>
+          <ul class="list">
+            <li>
+              <span class="ico ico-indigo">&#10003;</span>
+              We'll confirm whether your territory is available &mdash; if it's taken, we'll tell you right away.
+            </li>
+            <li>
+              <span class="ico ico-indigo">&#10003;</span>
+              We'll audit your current local-search visibility and show you where prospective students are finding your competitors instead of you.
+            </li>
+            <li>
+              <span class="ico ico-indigo">&#10003;</span>
+              We'll map what the Market Ownership System would produce for a music school your size, in your market.
+            </li>
+          </ul>
+
+          <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+          <div class="callout mt24" style="border:1px dashed var(--indigo-500); border-radius:6px;">
+            <span class="stars" aria-label="5 out of 5 stars"></span>
+            <p style="font-size:1.12rem;font-style:italic;color:var(--black);margin:12px 0 10px">
+              &ldquo;[Pull-quote from a verified music-school client &mdash; their result in their own words.]&rdquo;
+            </p>
+            <p class="small muted mb0"><strong style="color:var(--black)">[Client name]</strong> &middot; [Music School], [City]</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. URGENCY STRIP ============ -->
+  <section class="section-sm section-light">
+    <div class="container narrow center">
+      <div class="callout">
+        <p class="mb0" style="font-size:1.12rem;color:var(--black)">
+          We only work with <strong>one music school per protected territory.</strong>
+          If your area is open when you book, it's held for you through your session &mdash;
+          but <span class="hl">your competitors are seeing this page too.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. BRIAN CREDIBILITY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <p class="eyebrow">Who you'll be talking to</p>
+        <!-- Brian's peer-credibility is fitness/martial-arts, not music. Founder framing kept generic. Swap for a music-specific spokesperson or lead with testimonial credibility if desired. -->
+        <div class="brian-card">
+          <div class="brian-avatar" aria-hidden="true">BD</div>
+          <div>
+            <h2 style="font-size:1.7rem;margin-bottom:6px">Brian Dietz</h2>
+            <ul class="brian-badges">
+              <li><span class="badge badge-soft">Founder, Monstro</span></li>
+              <li><span class="badge badge-soft">Army veteran</span></li>
+            </ul>
+            <p class="mb0">
+              He built the Market Ownership System after watching the same pattern hit local businesses everywhere &mdash;
+              the ones that own local search win, everyone else rents attention until they can't afford to.
+              Not a marketing guy who studied this from a course; <span class="hl">an operator who lived the single-channel trap himself.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. SOCIAL-PROOF STRIP ============ -->
+  <section class="section-sm section-light">
+    <div class="container narrow">
+      <p class="eyebrow center">Music schools already ahead of their market</p>
+      <div class="grid grid-2 mt24">
+
+        <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+        <div class="testimonial compact" style="border:1px dashed var(--indigo-500); border-radius:6px;">
+          <span class="stars" aria-label="5 out of 5 stars"></span>
+          <p>&ldquo;[Short testimonial quote from a verified music-school client.]&rdquo;</p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true">??</div>
+            <div><strong>[Client name]</strong><span>[Music School], [City]</span></div>
+          </div>
+        </div>
+
+        <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+        <div class="testimonial compact" style="border:1px dashed var(--indigo-500); border-radius:6px;">
+          <span class="stars" aria-label="5 out of 5 stars"></span>
+          <p>&ldquo;[Short testimonial quote from a verified music-school client.]&rdquo;</p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true">??</div>
+            <div><strong>[Client name]</strong><span>[Music School], [City]</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FOOTER ============ -->
+  <footer class="site-footer"><div class="container"><div class="cols"><div><a class="logo" href="#">MONSTR<span class="dot">O</span></a><p class="small muted" style="margin-top:10px;max-width:440px">Monstro is the number one platform for music schools and studios to enroll more students and manage their business with ease.</p></div><div class="small"><strong>Need help?</strong><br>Email <a href="mailto:support@mymonstro.com">support@mymonstro.com</a></div></div><hr class="rule"><div class="small muted">&copy; 2026 Monstro. All rights reserved. &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Use</a></div></div></footer>
+
+</body>
+</html>

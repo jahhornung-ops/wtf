@@ -1,0 +1,214 @@
+<!-- Export: screenshot the 1080x1080 .ad-stage to PNG. Swap the text wordmark for the real logo when available. -->
+<!-- DRAFT AD: hero-story layout is finished; all client-specific proof is a bracketed placeholder. Do NOT publish until verified numbers + name are filled in. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monstro Ad 4 — Story (placeholder)</title>
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  html, body { background: #334155; }
+  body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
+
+  .ad-stage {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    background:
+      radial-gradient(circle at 80% 12%, rgba(99,102,241,.55), transparent 55%),
+      linear-gradient(155deg, #1e1b4b 0%, var(--slate-950) 70%);
+    color: var(--white);
+    padding: 84px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    font-family: var(--font-body);
+  }
+
+  /* starfield dots */
+  .stars-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .stars-bg i {
+    position: absolute;
+    background: #fff;
+    border-radius: 999px;
+    opacity: .8;
+  }
+  /* keep the draft tag absolutely positioned; everything else stacks in normal flow */
+  .ad-stage > *:not(.stars-bg):not(.draft-tag) { position: relative; z-index: 1; }
+
+  /* DRAFT corner tag — small indigo/black pill so this is never mistaken for a finished ad */
+  .draft-tag {
+    position: absolute;
+    top: 30px; right: 30px;
+    z-index: 3;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--indigo-500);
+    box-shadow: 0 6px 18px rgba(0,0,0,.4);
+    white-space: nowrap;
+  }
+
+  .wordmark {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    line-height: 1;
+  }
+  .wordmark .o { color: var(--indigo-500); }
+
+  /* review stars */
+  .review-stars {
+    font-size: 50px;
+    letter-spacing: 6px;
+    color: var(--yellow-400);
+    margin-top: 70px;
+    line-height: 1;
+  }
+
+  .headline {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 78px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-top: 26px;
+  }
+  .headline .grow { color: var(--green-500); }
+  .headline .off { color: var(--red-500); }
+
+  .support {
+    font-family: var(--font-body);
+    font-size: 29px;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin-top: 30px;
+    max-width: 880px;
+  }
+  .support b { color: var(--white); font-weight: 700; }
+
+  /* attribution + mini stats */
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 34px;
+  }
+  .avatar {
+    flex: none;
+    width: 78px; height: 78px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--indigo-500), var(--indigo-600));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 32px;
+    color: #fff;
+    border: 3px solid rgba(255,255,255,.25);
+  }
+  .who-name {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .who-sub {
+    font-family: var(--font-body);
+    font-size: 24px;
+    color: rgba(255,255,255,.7);
+  }
+
+  .spacer { flex: 1 1 auto; }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-pill {
+    display: inline-block;
+    background: var(--white);
+    color: var(--slate-950);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 32px;
+    padding: 26px 46px;
+    border-radius: 999px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.4);
+    white-space: nowrap;
+  }
+  .site-tag {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 26px;
+    color: rgba(255,255,255,.6);
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="ad-stage">
+    <div class="stars-bg">
+      <i style="top:60px;left:120px;width:4px;height:4px;"></i>
+      <i style="top:140px;left:360px;width:3px;height:3px;opacity:.5;"></i>
+      <i style="top:90px;left:620px;width:5px;height:5px;"></i>
+      <i style="top:200px;left:880px;width:3px;height:3px;opacity:.6;"></i>
+      <i style="top:300px;left:200px;width:3px;height:3px;opacity:.5;"></i>
+      <i style="top:420px;left:980px;width:4px;height:4px;opacity:.7;"></i>
+      <i style="top:520px;left:90px;width:3px;height:3px;opacity:.5;"></i>
+      <i style="top:640px;left:720px;width:4px;height:4px;opacity:.6;"></i>
+      <i style="top:760px;left:300px;width:3px;height:3px;opacity:.45;"></i>
+      <i style="top:840px;left:940px;width:4px;height:4px;opacity:.6;"></i>
+      <i style="top:980px;left:520px;width:3px;height:3px;opacity:.5;"></i>
+    </div>
+
+    <!-- Visible draft marker: remove once verified client numbers replace the placeholders below -->
+    <div class="draft-tag">DRAFT — awaiting client numbers</div>
+
+    <div class="wordmark">MONSTR<span class="o">O</span></div>
+
+    <div class="review-stars">★★★★★</div>
+
+    <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+    <div class="headline">
+      <span class="grow">[X] leads → [Y] new students</span> in just <span class="off">[Z] weeks.</span>
+    </div>
+
+    <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+    <div class="support">
+      <b>[X] leads and [Y] new students</b> in the first [Z] weeks at [Music School]. [Add the verified headline result here.]
+    </div>
+
+    <!-- MUSIC PROOF PLACEHOLDER: fill with verified client name + numbers -->
+    <div class="who">
+      <div class="avatar">??</div>
+      <div>
+        <div class="who-name">[Client Name]</div>
+        <div class="who-sub">[Music School], [City]</div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="cta-row">
+      <span class="cta-pill">See how they did it →</span>
+      <span class="site-tag">mymonstro.com</span>
+    </div>
+  </div>
+</body>
+</html>

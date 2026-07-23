@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Weekend Care Instructions — Leo &amp; Vienna</title>
+<style>
+  :root {
+    --bg: #f6f3ee;
+    --card: #ffffff;
+    --ink: #2b2620;
+    --muted: #6b6255;
+    --line: #e6ded2;
+    --accent: #b0563a;
+    --accent-soft: #f1e0d6;
+    --accent-2: #4c6b58;
+    --accent-2-soft: #e2ebe3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201c17;
+      --card: #2a251f;
+      --ink: #f1ece2;
+      --muted: #b7ac9b;
+      --line: #3c352b;
+      --accent: #e08462;
+      --accent-soft: #3a2a22;
+      --accent-2: #8fb79c;
+      --accent-2-soft: #263229;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Iowan Old Style', 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 5rem;
+  }
+  header.page-head {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  header.page-head h1 {
+    font-size: 2rem;
+    margin: 0 0 0.35rem;
+    letter-spacing: 0.01em;
+  }
+  header.page-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .chip {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+  }
+  section.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.4rem;
+  }
+  section.card h2 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  section.card h2 .tag {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+  }
+  section.card.dog h2 .tag {
+    color: var(--accent-2);
+    background: var(--accent-2-soft);
+  }
+  h3.sub {
+    font-size: 1rem;
+    margin: 1.1rem 0 0.4rem;
+    color: var(--muted);
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+  }
+  h3.sub:first-of-type { margin-top: 0; }
+  ul, ol { margin: 0.3rem 0; padding-left: 1.3rem; }
+  li { margin-bottom: 0.35rem; }
+  p { margin: 0.4rem 0; }
+  .note {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 0.6rem 0.9rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    margin: 0.6rem 0;
+  }
+  .fill {
+    background: rgba(176,86,58,0.08);
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 0.15rem 0.4rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .timeline li {
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid var(--line);
+    padding-bottom: 0.9rem;
+    margin-left: 0.3rem;
+  }
+  .timeline li:last-child { border-color: transparent; padding-bottom: 0; }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.3rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .time {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 0.4rem;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+
+  /* Password gate */
+  #gate {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 1.25rem;
+  }
+  #gate .box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2rem;
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  #gate h1 { font-size: 1.1rem; margin: 0 0 1rem; font-family: inherit; }
+  #gate input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  #gate button {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  #gate .err {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 1.1em;
+  }
+  #content { display: none; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <h1>This page is private.</h1>
+    <input id="pw" type="password" placeholder="Enter password" autocomplete="off" />
+    <button id="pwSubmit">Unlock</button>
+    <div class="err" id="pwErr"></div>
+  </div>
+</div>
+
+<div id="content">
+<div class="wrap">
+
+  <header class="page-head">
+    <h1>Weekend Care Instructions</h1>
+    <p>For Maya — watching Leo &amp; Vienna</p>
+    <div class="chip-row">
+      <span class="chip">Friday – Sunday</span>
+      <span class="chip">Redmond, WA</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2><span class="tag">Arrival</span> Friday, 3:00 PM</h2>
+    <ul>
+      <li>Please plan to arrive at the house at <strong>3:00 PM</strong> — we'll meet you outside.</li>
+      <li>We'll give you a full tour, point out where things are, and introduce you to Leo.</li>
+      <li>We'll get you set up in the <strong>guest room</strong> and walk through the daily routine before we leave.</li>
+    </ul>
+    <h3 class="sub">House Access</h3>
+    <ul>
+      <li>Once we're gone, use the <strong>back door through the garage</strong> to enter and exit the house.</li>
+      <li>A key will be left for you: <span class="fill">[key location — parents to fill in / confirm in person]</span></li>
+      <li>You only need to worry about locking the doors at <strong>night</strong> — otherwise it's a very secure neighborhood.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="tag">Friday Evening</span></h2>
+    <ul class="timeline">
+      <li><span class="time">Dinner</span>Something easy will be left for Leo to eat — likely pizza, spaghetti, or similar. If you could cook it for him, that'd be great.</li>
+      <li><span class="time">After dinner</span>Playtime with Leo.</li>
+      <li><span class="time">Movie</span>He may watch <strong>one family movie</strong> (Netflix, Disney+, Amazon, or the DVD player). He may ask for monster shows or YouTube — the answer is <strong>no</strong>.</li>
+      <li><span class="time">9:30 PM — Bedtime</span>Brush teeth, fresh underwear (he doesn't like wearing pajamas to bed). He likes to be snuggled to sleep.</li>
+    </ul>
+    <div class="note">
+      <strong>Sleeping arrangement:</strong> Leo's own bed is a loft twin — basically impossible for an adult to get into. For snuggling, use either the parents' bed, or the guest room, which has a trundle that pulls out from underneath so you can be in the same room in separate beds if that's more comfortable.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="tag">Saturday</span></h2>
+    <h3 class="sub">Morning</h3>
+    <ul>
+      <li>Leo usually wakes up around <strong>7:00–7:30 AM</strong>.</li>
+      <li>Breakfast is typically cereal, or eggs and bacon — he can be a little particular about how the eggs and bacon are made, so ask him and figure it out together.</li>
+    </ul>
+    <h3 class="sub">The Day — Keep Him Moving</h3>
+    <p>The main goal is to keep Leo entertained and active. Air quality has been bad, so outside time may not be possible — use your judgment on the day:</p>
+    <ul>
+      <li><strong>If it's clear:</strong> take him to the park up the street, let him play with squirt guns, and keep him outside as much as possible. Apply sunscreen.</li>
+      <li><strong>If it's smoky:</strong> keep him inside — Legos, building forts, hide and seek, soccer drills, anything to keep him happy and busy.</li>
+      <li><strong>Lunch:</strong> something easy, like a quesadilla.</li>
+    </ul>
+    <h3 class="sub">Evening</h3>
+    <ul class="timeline">
+      <li><span class="time">~6:00 PM — Dinner</span>Something easy — pizza, spaghetti, whatever he didn't have Friday night.</li>
+      <li><span class="time">After dinner</span>Family movie (same rules as Friday).</li>
+      <li><span class="time">9:00 PM — Bedtime</span>Fresh underwear, brush teeth, snuggle to sleep.</li>
+    </ul>
+    <div class="note">
+      <strong>Bath:</strong> We're aiming to bathe Leo Friday night before we leave, but he may need a bath Saturday night too. He's old enough to bathe himself (washes his own hair and body) — just keep the door open for basic supervision. Towels and everything else will be left out for him.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="tag">Sunday</span></h2>
+    <ul>
+      <li>Leo's dad will pick him up at the house at <strong>9:15 AM</strong>.</li>
+      <li>If Leo wakes up before 9:00 AM, help him into fresh clothes and give him an easy breakfast (cereal).</li>
+      <li>Ask him if there's anything he'd like to bring to his dad's house, and help him get it together.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="tag">Daily Basics</span></h2>
+    <ul>
+      <li>Fresh underwear morning and night.</li>
+      <li>Fresh clothes each morning — they don't have to be "street clothes." If you're not going out, pajamas are fine, they just need to be clean.</li>
+    </ul>
+  </section>
+
+  <section class="card dog">
+    <h2><span class="tag">Vienna (the dog)</span></h2>
+    <h3 class="sub">Medication</h3>
+    <ul>
+      <li>Two pills, morning and night. Put both in one pill pocket treat and give it to her — she takes it very well.</li>
+    </ul>
+    <h3 class="sub">Food &amp; Water</h3>
+    <ul>
+      <li>Keep her water bowl full.</li>
+      <li>Feed once a day: kibble mixed with chicken broth (in the fridge) — stir it in with a spoon and let it soak until soft. She eats at her own pace throughout the day.</li>
+    </ul>
+    <h3 class="sub">Potty &amp; Walks</h3>
+    <ul>
+      <li>Send her out the <strong>front door</strong>, and put her on the <strong>pink leash</strong> kept on the front porch.</li>
+      <li><strong>Always keep her on the leash outside</strong> — she hasn't learned the yard boundaries yet and will run straight down the block.</li>
+      <li>If she poops, please clean it up — bags are in the dog bin by the front porch. If it's missed, no stress, we'll do a walkthrough when we get home.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="tag">Contacts</span></h2>
+    <p>Please fill in before Friday:</p>
+    <ul>
+      <li>Parents' cell phone(s): <span class="fill">[add]</span></li>
+      <li>Home address: <span class="fill">[add]</span></li>
+      <li>Pediatrician: <span class="fill">[add]</span></li>
+      <li>Vet (for Vienna): <span class="fill">[add]</span></li>
+      <li>Nearest emergency room: <span class="fill">[add]</span></li>
+      <li>WiFi network / password: <span class="fill">[add]</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    Thank you so much for watching Leo and Vienna this weekend — we really appreciate it! We'll do a full walkthrough when we get home (or Monday, before the landscapers come). We'll add anything else here if it comes to mind.
+  </footer>
+
+</div>
+</div>
+
+<script>
+(function () {
+  var CORRECT_HASH = '8c45fa6a04aaae9848a1357058f17ca1c6b1f2a5424afa27565655983cc66a2';
+  var STORAGE_KEY = 'nanny-weekend-unlocked';
+
+  function showContent() {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
+  async function sha256Hex(text) {
+    var data = new TextEncoder().encode(text);
+    var digest = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(digest))
+      .map(function (b) { return b.toString(16).padStart(2, '0'); })
+      .join('');
+  }
+
+  if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+    showContent();
+  }
+
+  async function tryUnlock() {
+    var pw = document.getElementById('pw').value;
+    var hash = await sha256Hex(pw);
+    if (hash === CORRECT_HASH) {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      showContent();
+    } else {
+      document.getElementById('pwErr').textContent = 'Incorrect password.';
+    }
+  }
+
+  document.getElementById('pwSubmit').addEventListener('click', tryUnlock);
+  document.getElementById('pw').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
+</script>
+
+</body>
+</html>
